@@ -5,3 +5,4 @@
  ความล่าช้าและเพิ่มความพึงพอใจในประชาชน 
 
 Data : https://drive.google.com/drive/u/1/folders/1PqMQlDy_WQ-3xxrgBcySryAATYEibqfo
+colab : https://colab.research.google.com/drive/13ql881pE2NKnVeBlrS9U6KHqUe_OLcDE?usp=sharing
