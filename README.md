@@ -1,5 +1,6 @@
 # Complaint Text Classification in Traffy Fondue Using WangchanBERTa for Accurate Forwarding to Relevant Agencies (The model is currently being improved)
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1izXxj1T65N7MWDrcYEWKyhc3RGfaab3J?usp=sharing)
 
 <p align="center">
   <img width = 200 heigth =200 src="https://storage.googleapis.com/traffy_public_bucket/traffy_logo/Image_fondue_logo.png">
@@ -24,7 +25,9 @@ input_text = "มีคนขี่รถมอเตอร์ไซต์บน
 ```
 ฝ่ายเทศกิจ
 ```
-![download (14)](https://github.com/user-attachments/assets/3df24ab6-a52b-477f-ba88-4ae0add7994a)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/13b094fc-3f95-4890-835b-3acd26a46cf9">
+</p>
 
 # 2.  วิธีการดำเนินงาน
 
@@ -36,9 +39,17 @@ input_text = "มีคนขี่รถมอเตอร์ไซต์บน
 
 ข้อมูลชุดนี้มี 781,683 แถว มี 17 คุณลักษณะ มีหน่วยงานที่แตกต่างกันถึง 747 หน่วยงาน (รวมหน่วยงานที่มีการแบ่งเป็นเขตและพื้นที่)
 
+<p align="center">
+  <img width = 700 heigth =700 src="https://github.com/user-attachments/assets/3d4f51b5-d5af-4cd8-8667-e17d091d714f">
+</p>
+
 ## 2.3 การเตรียมข้อมูล
 
 มีการเลือกข้อมูลที่ไม่ผ่านการส่งต่อหรือไม่มีสถานะ “ส่งต่อ” เลย มีการ Grouping ในคลาส โดยการ Group หน่วยงานที่แบ่งเขตการทำงานให้เป็นชื่อเดียวกันตัวอย่างเช่น “เทศกิจเขตบางนา”ก็จะได้ “เทศกิจ” และมีการใช้ Library Pythainlp สำหรับการจัดการภาษาไทยอย่างเช่น ลบสัญลักษณ์ ช่องว่าง ตัวเลข อักขระเดี่ยว และ ตรวจคำผิด
+
+<p align="center">
+  <img width = 650 heigth =650 src="https://github.com/user-attachments/assets/3df24ab6-a52b-477f-ba88-4ae0add7994a">
+</p>
 
 ## 2.4 การฝึกโมเดล
 
@@ -58,9 +69,38 @@ input_text = "มีคนขี่รถมอเตอร์ไซต์บน
 
 # 3. ผลลัพธ์
 
+| Category | Precision | Recall | F1-Score | Support |
+|-------------------------------|-----------|--------|----------|---------|
+| กรมควบคุมมลพิษ | 1.00 | 0.84 | 0.87 | 28 |
+| กรมทางหลวง | 0.50 | 0.55 | 0.52 | 150 |
+| กรมทางหลวงชนบท กระทรวงคมนาคม | - | - | - | - |
+| การรถไฟฟ้าขนส่งมวลชนแห่งประเทศไทย (รฟม.) | 0.62 | 0.50 | 0.55 | 78 |
+| บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน) | 0.75 | 0.81 | 0.78 | 75 |
+| ฝ่ายการศึกษา | 0.77 | 0.83 | 0.80 | 29 |
+| ฝ่ายทะเบียน | 0.86 | 0.86 | 0.86 | 28 |
+| ฝ่ายปกครอง | 0.78 | 0.72 | 0.75 | 126 |
+| ฝ่ายพัฒนาชุมชนฯ | 0.78 | 0.72 | 0.75 | 126 |
+| ฝ่ายรักษาความสะอาดฯ | - | - | - | - |
+| ฝ่ายสิ่งแวดล้อมฯ | 0.67 | 0.79 | 0.73 | 150 |
+| ฝ่ายเทศกิจ | 0.73 | 0.70 | 0.72 | 150 |
+| ฝ่ายโยธา | 0.51 | 0.69 | 0.59 | 78 |
+| พนักงานกวาด | 0.98 | 1.00 | 0.99 | 55 |
+| สน. | 1.00 | 1.00 | 1.00 | 28 |
+| สำนักการจราจรและขนส่ง กรุงเทพมหานคร (สจส. กทม.) | 0.54 | 0.85 | 0.66 | 150 |
+| สำนักการโยธา กทม. | 0.80 | 0.89 | 0.15 | 150 |
+| สำนักงานสัตวแพทย์สาธารณสุข สำนักอนามัย กทม. | 0.88 | 0.94 | 0.91 | 28 |
+| สำนักสิ่งแวดล้อม กทม. | 0.42 | 0.38 | 0.39 | 30 |
+| สำนักอนามัย กทม. | 0.95 | 0.75 | 0.84 | 28 |
+
+### **Summary**
+| Metric | Score |
+|----------------|------|
+| **Accuracy** | 0.69 |
+| **Macro Avg** | 0.69 / 0.61 / 0.68 |
+| **Weighted Avg** | 0.67 / 0.68 / 0.68 |
+
 
 
 
 Data : https://drive.google.com/drive/u/1/folders/1PqMQlDy_WQ-3xxrgBcySryAATYEibqfo
 
-colab : [https://colab.research.google.com/drive/13ql881pE2NKnVeBlrS9U6KHqUe_OLcDE?usp=sharing](https://colab.research.google.com/drive/1izXxj1T65N7MWDrcYEWKyhc3RGfaab3J?usp=sharing)
